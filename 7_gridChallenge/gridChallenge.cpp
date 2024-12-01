@@ -44,7 +44,6 @@ string gridChallenge(vector<string> grid) {
     }
     
     return ret_val;
-    //return "hey";
 }
 
 int main()
