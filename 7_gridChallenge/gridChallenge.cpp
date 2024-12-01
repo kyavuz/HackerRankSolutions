@@ -23,20 +23,14 @@ string gridChallenge(vector<string> grid) {
     // and change the order if necessary
     for (int i = 0; i<grid_row_size; i++){
         grid_col_size = grid[i].size();
-        for (int j = 0; j<grid_col_size-1; j++){
-            isOrdered = grid[i][j]<grid[i][j+1];
-            if (isOrdered==0){
-                temp=grid[i][j];
-                grid[i][j]=grid[i][j+1];
-                grid[i][j+1]=temp;
-            }
-        }
+        sort(grid[i].begin(), grid[i].end());
     }
     
     // compare each row in that col
     for (int i = 0; i<grid_row_size-1; i++){
+        grid_col_size = grid[i].size();
         for (int j = 0; j<grid_col_size; j++){
-            isOrdered = grid[i][j]<grid[i+1][j];
+            isOrdered = grid[i][j]<=grid[i+1][j];
             if (isOrdered==0){
                 ret_val = "NO";
             }
